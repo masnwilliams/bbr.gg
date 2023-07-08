@@ -1,4 +1,4 @@
-!['BattleBit Remastered Banner'](./public/bbr.png)
+!['BattleBit Remastered Banner'](./public/bbr_banner.png)
 
 # BBR.gg | BattleBit Remastered Companion App
 

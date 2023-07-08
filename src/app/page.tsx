@@ -3,7 +3,12 @@ import ServerSummary from '@/component/ServerSummary'
 
 const getServerList = async (): Promise<GameServer[]> => {
   const res = await fetch(
-    'https://publicapi.battlebit.cloud/Servers/GetServerList'
+    'https://publicapi.battlebit.cloud/Servers/GetServerList',
+    {
+      next: {
+        revalidate: 10, // Fetches server data every 10 seconds
+      },
+    }
   )
   return (await res.json()) as GameServer[]
 }
