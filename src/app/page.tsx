@@ -1,22 +1,17 @@
-import { GameServer } from '@/lib/types'
-import ServerSummary from '@/component/ServerSummary'
+import Image from 'next/image'
 
-const getServerList = async (): Promise<GameServer[]> => {
-  const res = await fetch(
-    'https://publicapi.battlebit.cloud/Servers/GetServerList',
-    {
-      next: {
-        revalidate: 10, // Fetches server data every 10 seconds
-      },
-    }
+const HomePage = () => {
+  return (
+    <div className={'w-full m-auto'}>
+      <Image
+        src={'/bbr_banner.png'}
+        alt={'BattleBit Remastered Banner'}
+        width={1920}
+        height={1080}
+        className={'flex justify-center'}
+      />
+    </div>
   )
-  return (await res.json()) as GameServer[]
 }
 
-const Home = async () => {
-  const servers = await getServerList()
-
-  return <ServerSummary servers={servers} />
-}
-
-export default Home
+export default HomePage

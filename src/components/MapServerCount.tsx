@@ -15,7 +15,7 @@ const MapServerCount = ({ servers }: { servers: GameServer[] }) => {
   }, {} as MapSummary)
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-2xl mb-4">Server Count by Map</h1>
       <table className="table-auto w-full">
         <thead>

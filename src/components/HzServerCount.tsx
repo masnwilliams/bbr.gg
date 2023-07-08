@@ -16,7 +16,7 @@ const HzServerCount = ({ servers }: { servers: GameServer[] }) => {
   }, {} as HzSummary)
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-2xl mb-4">Server Count by Hz</h1>
       <table className="table-auto w-full">
         <thead>

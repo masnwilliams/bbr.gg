@@ -6,15 +6,11 @@ import { usePathname } from 'next/navigation'
 const navItems = [
   {
     href: '/',
+    text: 'Home',
+  },
+  {
+    href: '/servers',
     text: 'Servers',
-  },
-  {
-    href: '/weapons',
-    text: 'Weapons',
-  },
-  {
-    href: '/classes',
-    text: 'Classes',
   },
 ]
 

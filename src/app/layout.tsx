@@ -2,7 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import NavBar from '@/component/NavBar'
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
 const figtree = Figtree({ subsets: ['latin'] })
 
@@ -16,10 +17,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className={figtree.className}>
         <NavBar />
-
         {children}
+        <Footer />
+        <Analytics />
       </body>
-      <Analytics />
     </html>
   )
 }

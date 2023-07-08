@@ -19,7 +19,7 @@ const MaxPlayersServerCount = ({ servers }: { servers: GameServer[] }) => {
   )
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-2xl mb-4">Server Count by Max Players</h1>
       <table className="table-auto w-full">
         <thead>

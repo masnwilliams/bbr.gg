@@ -16,7 +16,7 @@ const RegionPlayerCount = ({ servers }: { servers: GameServer[] }) => {
   }, {} as RegionSummary)
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-2xl mb-4">Player Count by Region</h1>
       <table className="table-auto w-full">
         <thead>
