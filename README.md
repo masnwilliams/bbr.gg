@@ -1,3 +1,5 @@
+!['BattleBit Remastered Banner'](./public/bbr.png)
+
 # BBR.gg | BattleBit Remastered Companion App
 
 Welcome to the BBR.gg project repository. This project aims to develop a companion application for the popular game [BattleBit Remastered](https://joinbattlebit.com/). Our goal is to create a platform that enhances player experiences by providing valuable game analytics, news updates, and a community platform.
