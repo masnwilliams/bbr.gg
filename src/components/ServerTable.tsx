@@ -1,8 +1,9 @@
 'use client'
 
 import { GameServer } from '@/lib/types'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useRef, useState } from 'react'
 import Image from 'next/image'
+import { useKeyboardShortcut } from '@/hooks/useKeyboardShortcut'
 
 const ServerTable = ({
   servers,
@@ -14,6 +15,7 @@ const ServerTable = ({
   serverCount: number
 }) => {
   const [searchTerm, setSearchTerm] = useState('')
+  const searchRef = useRef(null)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value)
@@ -37,6 +39,13 @@ const ServerTable = ({
       server.Build.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  useKeyboardShortcut(['mod', 'k'], () => {
+    if (searchRef.current != null) {
+      // @ts-ignore
+      searchRef.current.focus()
+    }
+  })
+
   return (
     <div>
       <h1 className="text-2xl mb-4">Server List</h1>
@@ -48,6 +57,7 @@ const ServerTable = ({
           value={searchTerm}
           onChange={handleChange}
           className="border p-2 rounded w-80"
+          ref={searchRef}
         />
         <div className={'text-gray-700'}>
           Players: {playerCount} - Servers: {serverCount}
@@ -89,6 +99,7 @@ const ServerTable = ({
                   >
                     <div>{server.Map}</div>
                     <div>{server.Region}</div>
+                    <div>{server.DayNight}</div>
                   </div>
                 </td>
                 <td className="border px-4 py-2">{server.Gamemode}</td>
@@ -126,6 +137,7 @@ const ServerTable = ({
                   >
                     <div>{server.Map}</div>
                     <div>{server.Region}</div>
+                    <div>{server.DayNight}</div>
                   </div>
                 </td>
                 <td className="border px-4 py-2">
