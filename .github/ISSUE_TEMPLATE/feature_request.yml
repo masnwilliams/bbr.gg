@@ -1,0 +1,29 @@
+name: Feature Request
+description: Suggest a new feature
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: What feature would you like to see?
+      description: Also tell us, why this feature is important to you?
+      placeholder: Describe the feature here!
+      value: "I'd like to see..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: What is the expected outcome of this feature?
+      description: Explain how this feature will change the current functionality.
+      placeholder: Describe the expected outcome here!
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Any additional context or screenshots
+      description: If applicable, add any other context about the feature request here. You can also upload screenshots to help explain your feature request.
