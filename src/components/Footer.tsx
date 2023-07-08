@@ -11,6 +11,11 @@ const Footer = () => {
         </div>
 
         <SocialLinks />
+
+        <div className={'flex justify-center text-gray-500'}>
+          bbr.gg is not affiliated with or endorsed by OKIGAMES (BattleBit
+          Remastered).
+        </div>
       </div>
     </footer>
   )

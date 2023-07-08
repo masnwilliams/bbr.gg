@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={figtree.className}>
+      <body className={`${figtree.className} cursor-default`}>
         <NavBar />
         {children}
         <Footer />
