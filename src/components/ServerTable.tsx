@@ -53,7 +53,7 @@ const ServerTable = ({
       <div className={'flex justify-between'}>
         <input
           type="text"
-          placeholder="Search projects..."
+          placeholder="Search servers..."
           value={searchTerm}
           onChange={handleChange}
           className="border p-2 rounded w-80"
