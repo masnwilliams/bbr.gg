@@ -115,7 +115,7 @@ const ServerTable = ({
             {filteredServers.map((server) => (
               <tr key={server.Name}>
                 <td className="border px-4 py-2">
-                  <div className={'text-xl font-semibold'}>
+                  <div className={'text-sm font-semibold'}>
                     [{server.IsOfficial ? 'OFFICIAL' : ''}] {server.Name}
                   </div>
 

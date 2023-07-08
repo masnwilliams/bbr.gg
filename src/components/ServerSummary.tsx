@@ -24,7 +24,7 @@ const ServerSummary = async () => {
   const serverCount = servers.length
 
   return (
-    <div>
+    <div className={'px-2 sm:px-10'}>
       <ServerTable
         servers={servers}
         playerCount={playerCount}
