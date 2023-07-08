@@ -24,11 +24,7 @@ const ServerSummary = async () => {
   const serverCount = servers.length
 
   return (
-    <div className={'grid px-24 gap-y-5 max-w-screen-xl m-auto'}>
-      <div className={'flex justify-end text-gray-700'}>
-        Data updates every 10 seconds after page refresh
-      </div>
-
+    <div>
       <ServerTable
         servers={servers}
         playerCount={playerCount}

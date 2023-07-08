@@ -49,57 +49,95 @@ const ServerTable = ({
           onChange={handleChange}
           className="border p-2 rounded w-80"
         />
-        <div>
+        <div className={'text-gray-700'}>
           Players: {playerCount} - Servers: {serverCount}
         </div>
       </div>
 
-      <table className="table-auto w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">Map</th>
-            <th className="px-4 py-2">Server Name</th>
-            <th className="px-4 py-2">Game Mode</th>
-            <th className="px-4 py-2">Map Size</th>
-            <th className="px-4 py-2">Players</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredServers.map((server) => (
-            <tr key={server.Name}>
-              <td className="border px-4 py-2">
-                <Image
-                  src={`/maps/${server.Map.toLowerCase()}.webp`}
-                  alt={''}
-                  width={100}
-                  height={100}
-                />
-              </td>
-              <td className="border px-4 py-2">
-                <div className={'text-xl font-semibold'}>
-                  [{server.IsOfficial ? 'OFFICIAL' : ''}] {server.Name}
-                </div>
-
-                <div
-                  className={
-                    'flex gap-x-2 [&>*]:border-2 [&>*]:rounded [&>*]:px-2'
-                  }
-                >
-                  <div>{server.Map}</div>
-                  <div>{server.Region}</div>
-                </div>
-              </td>
-              <td className="border px-4 py-2">{server.Gamemode}</td>
-              <td className="border px-4 py-2">{server.MapSize}</td>
-              <td className="border px-4 py-2">
-                {`${server.Players}${
-                  server.QueuePlayers ? `(+${server.QueuePlayers})` : ''
-                }/${server.MaxPlayers}`}
-              </td>
+      <div className={'mt-4'}>
+        {/*// This table is hidden on mobile devices*/}
+        <table className="table-auto w-full collapse md:visible">
+          <thead>
+            <tr>
+              <th className="px-4 py-2">Map</th>
+              <th className="px-4 py-2">Server Name</th>
+              <th className="px-4 py-2">Game Mode</th>
+              <th className="px-4 py-2">Map Size</th>
+              <th className="px-4 py-2">Players</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredServers.map((server) => (
+              <tr key={server.Name}>
+                <td className="border px-4 py-2">
+                  <Image
+                    src={`/maps/${server.Map.toLowerCase()}.webp`}
+                    alt={''}
+                    width={100}
+                    height={100}
+                  />
+                </td>
+                <td className="border px-4 py-2">
+                  <div className={'text-xl font-semibold'}>
+                    [{server.IsOfficial ? 'OFFICIAL' : ''}] {server.Name}
+                  </div>
+
+                  <div
+                    className={
+                      'flex gap-x-2 [&>*]:border-2 [&>*]:rounded [&>*]:px-2 text-sm'
+                    }
+                  >
+                    <div>{server.Map}</div>
+                    <div>{server.Region}</div>
+                  </div>
+                </td>
+                <td className="border px-4 py-2">{server.Gamemode}</td>
+                <td className="border px-4 py-2">{server.MapSize}</td>
+                <td className="border px-4 py-2">
+                  {`${server.Players}${
+                    server.QueuePlayers ? `(+${server.QueuePlayers})` : ''
+                  }/${server.MaxPlayers}`}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {/*// This table is visible on mobile devices*/}
+        <table className="table-auto w-full md:collapse">
+          <thead>
+            <tr>
+              <th className="px-4 py-2">Server Name</th>
+              <th className="px-4 py-2">Players</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredServers.map((server) => (
+              <tr key={server.Name}>
+                <td className="border px-4 py-2">
+                  <div className={'text-xl font-semibold'}>
+                    [{server.IsOfficial ? 'OFFICIAL' : ''}] {server.Name}
+                  </div>
+
+                  <div
+                    className={
+                      'flex gap-x-2 [&>*]:border-2 [&>*]:rounded [&>*]:px-2 text-sm'
+                    }
+                  >
+                    <div>{server.Map}</div>
+                    <div>{server.Region}</div>
+                  </div>
+                </td>
+                <td className="border px-4 py-2">
+                  {`${server.Players}${
+                    server.QueuePlayers ? `(+${server.QueuePlayers})` : ''
+                  }/${server.MaxPlayers}`}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
