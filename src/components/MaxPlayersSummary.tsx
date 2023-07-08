@@ -1,25 +1,25 @@
-import { GameServer } from "@/lib/types";
+import { GameServer } from '@/lib/types'
 
 type MaxPlayersSummary = {
-  [maxPlayers: string]: number;
-};
+  [maxPlayers: string]: number
+}
 
 const MaxPlayersServerCount = ({ servers }: { servers: GameServer[] }) => {
   const maxPlayersSummary: MaxPlayersSummary = servers.reduce(
     (summary, server) => {
-      const maxPlayersKey = server.MaxPlayers.toString();
+      const maxPlayersKey = server.MaxPlayers.toString()
       if (summary[maxPlayersKey]) {
-        summary[maxPlayersKey]++;
+        summary[maxPlayersKey]++
       } else {
-        summary[maxPlayersKey] = 1;
+        summary[maxPlayersKey] = 1
       }
-      return summary;
+      return summary
     },
     {} as MaxPlayersSummary
-  );
+  )
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-2xl mb-4">Server Count by Max Players</h1>
       <table className="table-auto w-full">
         <thead>
@@ -38,7 +38,7 @@ const MaxPlayersServerCount = ({ servers }: { servers: GameServer[] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default MaxPlayersServerCount;
+export default MaxPlayersServerCount

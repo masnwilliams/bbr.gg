@@ -1,21 +1,21 @@
-import { GameServer } from "@/lib/types";
+import { GameServer } from '@/lib/types'
 
 type DayNightSummary = {
-  [dayNight: string]: number;
-};
+  [dayNight: string]: number
+}
 
 const DayNightServerCount = ({ servers }: { servers: GameServer[] }) => {
   const dayNightSummary: DayNightSummary = servers.reduce((summary, server) => {
     if (summary[server.DayNight]) {
-      summary[server.DayNight]++;
+      summary[server.DayNight]++
     } else {
-      summary[server.DayNight] = 1;
+      summary[server.DayNight] = 1
     }
-    return summary;
-  }, {} as DayNightSummary);
+    return summary
+  }, {} as DayNightSummary)
 
   return (
-    <div className="p-4">
+    <div>
       <h1 className="text-2xl mb-4">Server Count by Day/Night</h1>
       <table className="table-auto w-full">
         <thead>
@@ -34,7 +34,7 @@ const DayNightServerCount = ({ servers }: { servers: GameServer[] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default DayNightServerCount;
+export default DayNightServerCount
