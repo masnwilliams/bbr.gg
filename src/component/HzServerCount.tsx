@@ -1,19 +1,19 @@
-import { GameServer } from "@/lib/types";
+import { GameServer } from '@/lib/types'
 
 type HzSummary = {
-  [hz: string]: number;
-};
+  [hz: string]: number
+}
 
 const HzServerCount = ({ servers }: { servers: GameServer[] }) => {
   const hzSummary: HzSummary = servers.reduce((summary, server) => {
-    const hzKey = server.Hz.toString();
+    const hzKey = server.Hz.toString()
     if (summary[hzKey]) {
-      summary[hzKey]++;
+      summary[hzKey]++
     } else {
-      summary[hzKey] = 1;
+      summary[hzKey] = 1
     }
-    return summary;
-  }, {} as HzSummary);
+    return summary
+  }, {} as HzSummary)
 
   return (
     <div className="p-4">
@@ -35,7 +35,7 @@ const HzServerCount = ({ servers }: { servers: GameServer[] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default HzServerCount;
+export default HzServerCount

@@ -1,18 +1,18 @@
-import { GameServer } from "@/lib/types";
+import { GameServer } from '@/lib/types'
 
 type MapSummary = {
-  [map: string]: number;
-};
+  [map: string]: number
+}
 
 const MapServerCount = ({ servers }: { servers: GameServer[] }) => {
   const mapSummary: MapSummary = servers.reduce((summary, server) => {
     if (summary[server.Map]) {
-      summary[server.Map]++;
+      summary[server.Map]++
     } else {
-      summary[server.Map] = 1;
+      summary[server.Map] = 1
     }
-    return summary;
-  }, {} as MapSummary);
+    return summary
+  }, {} as MapSummary)
 
   return (
     <div className="p-4">
@@ -34,7 +34,7 @@ const MapServerCount = ({ servers }: { servers: GameServer[] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default MapServerCount;
+export default MapServerCount

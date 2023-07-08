@@ -3,7 +3,7 @@ const WeaponsPage = () => {
     <div>
       <h1>Weapons</h1>
     </div>
-  );
-};
+  )
+}
 
-export default WeaponsPage;
+export default WeaponsPage

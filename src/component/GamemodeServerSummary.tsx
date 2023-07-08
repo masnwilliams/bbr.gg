@@ -1,21 +1,21 @@
-import { GameServer } from "@/lib/types";
+import { GameServer } from '@/lib/types'
 
 type GamemodeServerSummary = {
-  [gamemode: string]: number;
-};
+  [gamemode: string]: number
+}
 
 const GamemodeServerCount = ({ servers }: { servers: GameServer[] }) => {
   const gamemodeSummary: GamemodeServerSummary = servers.reduce(
     (summary, server) => {
       if (summary[server.Gamemode]) {
-        summary[server.Gamemode]++;
+        summary[server.Gamemode]++
       } else {
-        summary[server.Gamemode] = 1;
+        summary[server.Gamemode] = 1
       }
-      return summary;
+      return summary
     },
     {} as GamemodeServerSummary
-  );
+  )
 
   return (
     <div className="p-4">
@@ -37,7 +37,7 @@ const GamemodeServerCount = ({ servers }: { servers: GameServer[] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default GamemodeServerCount;
+export default GamemodeServerCount

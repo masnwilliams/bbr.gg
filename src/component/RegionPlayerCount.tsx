@@ -1,19 +1,19 @@
-import React from "react";
-import { GameServer } from "@/lib/types";
+import React from 'react'
+import { GameServer } from '@/lib/types'
 
 type RegionSummary = {
-  [region: string]: number;
-};
+  [region: string]: number
+}
 
 const RegionPlayerCount = ({ servers }: { servers: GameServer[] }) => {
   const regionSummary: RegionSummary = servers.reduce((summary, server) => {
     if (summary[server.Region]) {
-      summary[server.Region] += server.Players;
+      summary[server.Region] += server.Players
     } else {
-      summary[server.Region] = server.Players;
+      summary[server.Region] = server.Players
     }
-    return summary;
-  }, {} as RegionSummary);
+    return summary
+  }, {} as RegionSummary)
 
   return (
     <div className="p-4">
@@ -35,7 +35,7 @@ const RegionPlayerCount = ({ servers }: { servers: GameServer[] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default RegionPlayerCount;
+export default RegionPlayerCount

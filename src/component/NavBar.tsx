@@ -1,30 +1,34 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const navItems = [
   {
-    href: "/",
-    text: "Servers",
+    href: '/',
+    text: 'Servers',
   },
   {
-    href: "/weapons",
-    text: "Weapons",
+    href: '/weapons',
+    text: 'Weapons',
   },
-];
+  {
+    href: '/classes',
+    text: 'Classes',
+  },
+]
 
 const NavBar = () => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   const linkClasses = (href: string) => {
     return pathname === href
-      ? "text-blue-500 hover:text-blue-700"
-      : "text-black hover:text-gray-500";
-  };
+      ? 'text-blue-500 hover:text-blue-700'
+      : 'text-black hover:text-gray-500'
+  }
 
   return (
-    <div className={"flex justify-center my-10 gap-5"}>
+    <div className={'flex justify-center my-10 gap-5'}>
       {navItems.map((item) => (
         <Link
           href={item.href}
@@ -35,7 +39,7 @@ const NavBar = () => {
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

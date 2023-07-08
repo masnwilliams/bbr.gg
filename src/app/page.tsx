@@ -1,17 +1,17 @@
-import { GameServer } from "@/lib/types";
-import ServerSummary from "@/component/ServerSummary";
+import { GameServer } from '@/lib/types'
+import ServerSummary from '@/component/ServerSummary'
 
 const getServerList = async (): Promise<GameServer[]> => {
   const res = await fetch(
-    "https://publicapi.battlebit.cloud/Servers/GetServerList"
-  );
-  return (await res.json()) as GameServer[];
-};
+    'https://publicapi.battlebit.cloud/Servers/GetServerList'
+  )
+  return (await res.json()) as GameServer[]
+}
 
 const Home = async () => {
-  const servers = await getServerList();
+  const servers = await getServerList()
 
-  return <ServerSummary servers={servers} />;
-};
+  return <ServerSummary servers={servers} />
+}
 
-export default Home;
+export default Home

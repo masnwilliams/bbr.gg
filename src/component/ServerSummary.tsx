@@ -1,10 +1,10 @@
-import { GameServer } from "@/lib/types";
-import MapServerCount from "@/component/MapServerCount";
-import MaxPlayersServerCount from "@/component/MaxPlayersSummary";
-import RegionPlayerCount from "@/component/RegionPlayerCount";
-import HzServerCount from "@/component/HzServerCount";
-import DayNightServerCount from "@/component/DayNightSummary";
-import GamemodeServerSummary from "@/component/GamemodeServerSummary";
+import { GameServer } from '@/lib/types'
+import MapServerCount from '@/component/MapServerCount'
+import MaxPlayersServerCount from '@/component/MaxPlayersSummary'
+import RegionPlayerCount from '@/component/RegionPlayerCount'
+import HzServerCount from '@/component/HzServerCount'
+import DayNightServerCount from '@/component/DayNightSummary'
+import GamemodeServerSummary from '@/component/GamemodeServerSummary'
 
 const ServerSummary = ({ servers }: { servers: GameServer[] }) => {
   return (
@@ -16,7 +16,7 @@ const ServerSummary = ({ servers }: { servers: GameServer[] }) => {
       <HzServerCount servers={servers} />
       <DayNightServerCount servers={servers} />
     </div>
-  );
-};
+  )
+}
 
-export default ServerSummary;
+export default ServerSummary
