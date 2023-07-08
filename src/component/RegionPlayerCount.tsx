@@ -5,9 +5,7 @@ type RegionSummary = {
   [region: string]: number;
 };
 
-const RegionPlayerCount: React.FC<{ servers: GameServer[] }> = ({
-  servers,
-}) => {
+const RegionPlayerCount = ({ servers }: { servers: GameServer[] }) => {
   const regionSummary: RegionSummary = servers.reduce((summary, server) => {
     if (summary[server.Region]) {
       summary[server.Region] += server.Players;

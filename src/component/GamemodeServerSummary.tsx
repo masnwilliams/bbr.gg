@@ -4,9 +4,7 @@ type GamemodeServerSummary = {
   [gamemode: string]: number;
 };
 
-const GamemodeServerCount: React.FC<{ servers: GameServer[] }> = ({
-  servers,
-}) => {
+const GamemodeServerCount = ({ servers }: { servers: GameServer[] }) => {
   const gamemodeSummary: GamemodeServerSummary = servers.reduce(
     (summary, server) => {
       if (summary[server.Gamemode]) {

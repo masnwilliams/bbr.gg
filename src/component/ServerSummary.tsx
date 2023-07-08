@@ -6,8 +6,7 @@ import HzServerCount from "@/component/HzServerCount";
 import DayNightServerCount from "@/component/DayNightSummary";
 import GamemodeServerSummary from "@/component/GamemodeServerSummary";
 
-const ServerSummary: React.FC<{ servers: GameServer[] }> = ({ servers }) => {
-  console.log(servers.length);
+const ServerSummary = ({ servers }: { servers: GameServer[] }) => {
   return (
     <div>
       <RegionPlayerCount servers={servers} />

@@ -4,7 +4,7 @@ type HzSummary = {
   [hz: string]: number;
 };
 
-const HzServerCount: React.FC<{ servers: GameServer[] }> = ({ servers }) => {
+const HzServerCount = ({ servers }: { servers: GameServer[] }) => {
   const hzSummary: HzSummary = servers.reduce((summary, server) => {
     const hzKey = server.Hz.toString();
     if (summary[hzKey]) {
@@ -17,19 +17,19 @@ const HzServerCount: React.FC<{ servers: GameServer[] }> = ({ servers }) => {
 
   return (
     <div className="p-4">
-      <h3>Server Count by Hz</h3>
-      <table>
+      <h1 className="text-2xl mb-4">Server Count by Hz</h1>
+      <table className="table-auto w-full">
         <thead>
           <tr>
-            <th>Hz</th>
-            <th>Count</th>
+            <th className="px-4 py-2">Hz</th>
+            <th className="px-4 py-2">Server Count</th>
           </tr>
         </thead>
         <tbody>
-          {Object.keys(hzSummary).map((hz) => (
+          {Object.entries(hzSummary).map(([hz, count]) => (
             <tr key={hz}>
-              <td>{hz}</td>
-              <td>{hzSummary[hz]}</td>
+              <td className="border px-4 py-2">{hz}</td>
+              <td className="border px-4 py-2">{count}</td>
             </tr>
           ))}
         </tbody>

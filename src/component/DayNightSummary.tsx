@@ -4,9 +4,7 @@ type DayNightSummary = {
   [dayNight: string]: number;
 };
 
-const DayNightServerCount: React.FC<{ servers: GameServer[] }> = ({
-  servers,
-}) => {
+const DayNightServerCount = ({ servers }: { servers: GameServer[] }) => {
   const dayNightSummary: DayNightSummary = servers.reduce((summary, server) => {
     if (summary[server.DayNight]) {
       summary[server.DayNight]++;

@@ -4,9 +4,7 @@ type MaxPlayersSummary = {
   [maxPlayers: string]: number;
 };
 
-const MaxPlayersServerCount: React.FC<{ servers: GameServer[] }> = ({
-  servers,
-}) => {
+const MaxPlayersServerCount = ({ servers }: { servers: GameServer[] }) => {
   const maxPlayersSummary: MaxPlayersSummary = servers.reduce(
     (summary, server) => {
       const maxPlayersKey = server.MaxPlayers.toString();

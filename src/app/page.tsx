@@ -11,11 +11,7 @@ const getServerList = async (): Promise<GameServer[]> => {
 const Home = async () => {
   const servers = await getServerList();
 
-  return (
-    <div>
-      <ServerSummary servers={servers} />
-    </div>
-  );
+  return <ServerSummary servers={servers} />;
 };
 
 export default Home;

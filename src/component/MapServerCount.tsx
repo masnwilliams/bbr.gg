@@ -4,7 +4,7 @@ type MapSummary = {
   [map: string]: number;
 };
 
-const MapServerCount: React.FC<{ servers: GameServer[] }> = ({ servers }) => {
+const MapServerCount = ({ servers }: { servers: GameServer[] }) => {
   const mapSummary: MapSummary = servers.reduce((summary, server) => {
     if (summary[server.Map]) {
       summary[server.Map]++;
