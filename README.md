@@ -13,7 +13,7 @@ Before contributing, please make sure you have [Node.js](https://nodejs.org/en) 
 To get the app running locally:
 
 - Clone this repository to your local machine using `git clone https://github.com/masnwilliams/bbr.gg.git`
-- Navigate into the cloned repository using `bbr.gg`
+- Navigate into the cloned repository using `cd bbr.gg`
 - Install the required dependencies using `pnpm install`
 
 Then, you can run the development server:
