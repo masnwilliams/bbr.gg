@@ -1,5 +1,5 @@
 import { GameServer } from "@/lib/types";
-import GameServerList from "@/component/GameServerList";
+import ServerSummary from "@/component/ServerSummary";
 
 const getServerList = async (): Promise<GameServer[]> => {
   const res = await fetch(
@@ -13,7 +13,7 @@ const Home = async () => {
 
   return (
     <div>
-      <GameServerList servers={servers} />
+      <ServerSummary servers={servers} />
     </div>
   );
 };
