@@ -2,12 +2,14 @@
 
 import { DiscordIcon } from 'components/Icons'
 import { useEffect, useState } from 'react'
-import { supabaseClient } from 'lib/supabase/client'
 import { Session } from '@supabase/gotrue-js'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 const AuthPanel = () => {
   const [hasSession, setSession] = useState<Session | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+
+  const supabaseClient = createClientComponentClient()
 
   useEffect(() => {
     const { data: authListener } = supabaseClient.auth.onAuthStateChange(
