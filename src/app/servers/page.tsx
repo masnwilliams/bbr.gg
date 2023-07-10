@@ -1,4 +1,4 @@
-import ServerSummary from '@/components/ServerSummary'
+import ServerSummary from 'components/servers/ServerSummary'
 
 const HomePage = async () => {
   return <ServerSummary />

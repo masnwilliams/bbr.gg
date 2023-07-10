@@ -1,4 +1,4 @@
-import { GameServer } from '@/lib/types'
+import { GameServer } from 'types/server'
 
 type GamemodeServerSummary = {
   [gamemode: string]: number

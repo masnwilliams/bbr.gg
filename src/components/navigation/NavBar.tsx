@@ -3,19 +3,23 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const navItems = [
-  {
-    href: '/',
-    text: 'Home',
-  },
-  {
-    href: '/servers',
-    text: 'Servers',
-  },
-]
-
 const NavBar = () => {
   const pathname = usePathname()
+
+  const navItems = [
+    {
+      href: '/',
+      text: 'Home',
+    },
+    {
+      href: '/servers',
+      text: 'Servers',
+    },
+    {
+      href: '/auth',
+      text: 'Auth',
+    },
+  ]
 
   const linkClasses = (href: string) => {
     return pathname === href

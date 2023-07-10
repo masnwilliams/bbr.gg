@@ -1,5 +1,10 @@
 import Link from 'next/link'
-import { DiscordIcon, GitHubIcon, TwitterIcon } from '@/components/Icons'
+import {
+  DiscordIcon,
+  GitHubIcon,
+  SteamIcon,
+  TwitterIcon,
+} from 'components/Icons'
 
 const socialLinks = [
   {
@@ -11,6 +16,11 @@ const socialLinks = [
     name: 'Twitter',
     link: 'https://twitter.com/@battlebitgame',
     icon: <TwitterIcon width={24} height={24} />,
+  },
+  {
+    name: 'Steam',
+    link: 'https://store.steampowered.com/app/671860/BattleBit_Remastered/',
+    icon: <SteamIcon width={24} height={24} />,
   },
   {
     name: 'GitHub',

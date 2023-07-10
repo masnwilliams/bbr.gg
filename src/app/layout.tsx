@@ -2,8 +2,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
+import NavBar from 'components/navigation/NavBar'
+import Footer from 'components/navigation/Footer'
+import { AuthProvider } from 'components/auth/AuthProvider'
 
 const figtree = Figtree({ subsets: ['latin'] })
 
@@ -16,10 +17,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={`${figtree.className} cursor-default`}>
-        <NavBar />
-        {children}
-        <Footer />
-        <Analytics />
+        <AuthProvider>
+          <NavBar />
+          {children}
+          <Footer />
+          <Analytics />
+        </AuthProvider>
       </body>
     </html>
   )

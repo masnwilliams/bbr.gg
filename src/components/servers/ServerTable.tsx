@@ -1,9 +1,9 @@
 'use client'
 
-import { GameServer } from '@/lib/types'
+import { GameServer } from 'types/server'
 import { ChangeEvent, useRef, useState } from 'react'
 import Image from 'next/image'
-import { useKeyboardShortcut } from '@/hooks/useKeyboardShortcut'
+import { useKeyboardShortcut } from 'hooks/useKeyboardShortcut'
 
 const ServerTable = ({
   servers,
@@ -50,51 +50,50 @@ const ServerTable = ({
     <div>
       <h1 className="text-2xl mb-4">Server List</h1>
 
-      <div className={'flex justify-between'}>
+      <div className={'flex justify-between items-end'}>
         <input
           type="text"
           placeholder="Search servers..."
           value={searchTerm}
           onChange={handleChange}
-          className="border p-2 rounded w-80"
+          className="border p-2 rounded w-full sm:w-64 md:w-80"
           ref={searchRef}
         />
-        <div className={'text-gray-700'}>
+        <div className={'text-gray-700 hidden sm:inline'}>
           Players: {playerCount} - Servers: {serverCount}
         </div>
       </div>
 
       <div className={'mt-4'}>
-        {/*// This table is hidden on mobile devices*/}
-        <table className="table-auto w-full collapse md:visible">
+        <table className="table-auto w-full">
           <thead>
             <tr>
-              <th className="px-4 py-2">Map</th>
-              <th className="px-4 py-2">Server Name</th>
-              <th className="px-4 py-2">Game Mode</th>
-              <th className="px-4 py-2">Map Size</th>
-              <th className="px-4 py-2">Players</th>
+              <th className="px-4 py-2 hidden md:table-cell">Map</th>
+              <th className="px-4 py-2 hidden md:table-cell">Server Name</th>
+              <th className="px-4 py-2 hidden md:table-cell">Game Mode</th>
+              <th className="px-4 py-2 hidden md:table-cell">Map Size</th>
+              <th className="px-4 py-2 hidden sm:table-cell">Players</th>
             </tr>
           </thead>
           <tbody>
             {filteredServers.map((server) => (
               <tr key={server.Name}>
-                <td className="border px-4 py-2">
+                <td className="border px-4 py-2 hidden md:table-cell">
                   <Image
                     src={`/maps/${server.Map.toLowerCase()}.webp`}
-                    alt={''}
+                    alt={server.Map}
                     width={100}
                     height={100}
                   />
                 </td>
                 <td className="border px-4 py-2">
-                  <div className={'text-xl font-semibold'}>
+                  <div className={'sm:text-lg font-semibold'}>
                     [{server.IsOfficial ? 'OFFICIAL' : ''}] {server.Name}
                   </div>
 
                   <div
                     className={
-                      'flex gap-x-2 [&>*]:border-2 [&>*]:rounded [&>*]:px-2 text-sm'
+                      'flex gap-x-2 [&>*]:border-2 [&>*]:rounded [&>*]:px-2 text-xs sm:text-sm'
                     }
                   >
                     <div>{server.Map}</div>
@@ -102,45 +101,13 @@ const ServerTable = ({
                     <div>{server.DayNight}</div>
                   </div>
                 </td>
-                <td className="border px-4 py-2">{server.Gamemode}</td>
-                <td className="border px-4 py-2">{server.MapSize}</td>
-                <td className="border px-4 py-2">
-                  {`${server.Players}${
-                    server.QueuePlayers ? `(+${server.QueuePlayers})` : ''
-                  }/${server.MaxPlayers}`}
+                <td className="border px-4 py-2 hidden md:table-cell">
+                  {server.Gamemode}
                 </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/*// This table is visible on mobile devices*/}
-        <table className="table-auto w-full md:collapse">
-          <thead>
-            <tr>
-              <th className="px-4 py-2">Server Name</th>
-              <th className="px-4 py-2">Players</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredServers.map((server) => (
-              <tr key={server.Name}>
-                <td className="border px-4 py-2">
-                  <div className={'text-sm font-semibold'}>
-                    [{server.IsOfficial ? 'OFFICIAL' : ''}] {server.Name}
-                  </div>
-
-                  <div
-                    className={
-                      'flex gap-x-2 [&>*]:border-2 [&>*]:rounded [&>*]:px-2 text-sm'
-                    }
-                  >
-                    <div>{server.Map}</div>
-                    <div>{server.Region}</div>
-                    <div>{server.DayNight}</div>
-                  </div>
+                <td className="border px-4 py-2 hidden md:table-cell">
+                  {server.MapSize}
                 </td>
-                <td className="border px-4 py-2">
+                <td className="border px-4 py-2 hidden sm:table-cell">
                   {`${server.Players}${
                     server.QueuePlayers ? `(+${server.QueuePlayers})` : ''
                   }/${server.MaxPlayers}`}

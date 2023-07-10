@@ -1,5 +1,5 @@
 import React from 'react'
-import { GameServer } from '@/lib/types'
+import { GameServer } from 'types/server'
 
 type RegionSummary = {
   [region: string]: number

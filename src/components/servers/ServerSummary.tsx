@@ -1,5 +1,5 @@
-import { GameServer } from '@/lib/types'
-import ServerTable from '@/components/ServerTable'
+import { GameServer } from 'types/server'
+import ServerTable from 'components/servers/ServerTable'
 
 const getServerList = async (): Promise<GameServer[]> => {
   const res = await fetch(
@@ -24,7 +24,7 @@ const ServerSummary = async () => {
   const serverCount = servers.length
 
   return (
-    <div className={'px-2 sm:px-10'}>
+    <div className={'px-4 sm:px-10'}>
       <ServerTable
         servers={servers}
         playerCount={playerCount}

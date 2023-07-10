@@ -14,10 +14,3 @@ export type GameServer = {
   AntiCheat: string
   Build: string
 }
-
-export type ClassData = {
-  name: string
-  skills: string[]
-  health?: number
-  runningSpeed?: number
-}
