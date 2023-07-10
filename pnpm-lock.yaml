@@ -8,6 +8,12 @@ dependencies:
   '@prisma/client':
     specifier: 4.16.2
     version: 4.16.2(prisma@4.16.2)
+  '@supabase/auth-helpers-nextjs':
+    specifier: ^0.7.2
+    version: 0.7.2(@supabase/supabase-js@2.26.0)
+  '@supabase/gotrue-js':
+    specifier: ^2.39.2
+    version: 2.39.2(encoding@0.1.13)
   '@supabase/supabase-js':
     specifier: ^2.26.0
     version: 2.26.0(encoding@0.1.13)
@@ -427,6 +433,31 @@ packages:
       }
     dev: false
 
+  /@supabase/auth-helpers-nextjs@0.7.2(@supabase/supabase-js@2.26.0):
+    resolution:
+      {
+        integrity: sha512-n5IyGBYJV/WiR5Rgw4CUaiJYiOv9yW2of4ZP4EyzKt2O6/6rztt7PcGE4AoK2vERw+fb5F2QtJBdt6J5eOYCCw==,
+      }
+    peerDependencies:
+      '@supabase/supabase-js': ^2.19.0
+    dependencies:
+      '@supabase/auth-helpers-shared': 0.4.1(@supabase/supabase-js@2.26.0)
+      '@supabase/supabase-js': 2.26.0(encoding@0.1.13)
+      set-cookie-parser: 2.6.0
+    dev: false
+
+  /@supabase/auth-helpers-shared@0.4.1(@supabase/supabase-js@2.26.0):
+    resolution:
+      {
+        integrity: sha512-IEDX9JzWkIjQiLUaP4Qy5YDiG0jFQatWfS+jw8cCQs6QfbNdEPd2Y3qonwGHnM90CZom9SvjuylBv2pFVAL7Lw==,
+      }
+    peerDependencies:
+      '@supabase/supabase-js': ^2.19.0
+    dependencies:
+      '@supabase/supabase-js': 2.26.0(encoding@0.1.13)
+      jose: 4.14.4
+    dev: false
+
   /@supabase/functions-js@2.1.2(encoding@0.1.13):
     resolution:
       {
@@ -438,10 +469,10 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js@2.39.1(encoding@0.1.13):
+  /@supabase/gotrue-js@2.39.2(encoding@0.1.13):
     resolution:
       {
-        integrity: sha512-qRz9mBleA/QATGKOdMAUjpn+YcbZJrTHyWQCe2hAFqJo15JIe1XziD1ZeFraRpsXwja+vONslGeynGv7H8ZZeQ==,
+        integrity: sha512-3M0P+0EP4cQLLsEhTxn17sP3riwZ37gWUv8k7s/4vBCMhRQR6PsF9RvybVyllPqm0Z9gfZAK3y1NUS53WqurcA==,
       }
     dependencies:
       cross-fetch: 3.1.8(encoding@0.1.13)
@@ -491,7 +522,7 @@ packages:
       }
     dependencies:
       '@supabase/functions-js': 2.1.2(encoding@0.1.13)
-      '@supabase/gotrue-js': 2.39.1(encoding@0.1.13)
+      '@supabase/gotrue-js': 2.39.2(encoding@0.1.13)
       '@supabase/postgrest-js': 1.7.2(encoding@0.1.13)
       '@supabase/realtime-js': 2.7.3
       '@supabase/storage-js': 2.5.1(encoding@0.1.13)
@@ -2639,6 +2670,13 @@ packages:
     hasBin: true
     dev: true
 
+  /jose@4.14.4:
+    resolution:
+      {
+        integrity: sha512-j8GhLiKmUAh+dsFXlX1aJCbt5KMibuKb+d7j1JaOJG6s2UjX1PQlW+OKB/sD4a/5ZYF4RcmYmLSndOoU3Lt/3g==,
+      }
+    dev: false
+
   /js-tokens@4.0.0:
     resolution:
       {
@@ -3665,6 +3703,13 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: false
+
+  /set-cookie-parser@2.6.0:
+    resolution:
+      {
+        integrity: sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==,
+      }
     dev: false
 
   /shebang-command@2.0.0:

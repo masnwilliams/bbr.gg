@@ -1,21 +1,35 @@
 'use client'
 
-import { useAuth } from 'lib/supabase/SessionContext'
 import { DiscordIcon } from 'components/Icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { supabaseClient } from 'lib/supabase/client'
+import { Session } from '@supabase/gotrue-js'
 
 const AuthPanel = () => {
+  const [hasSession, setSession] = useState<Session | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const auth = useAuth()
+
+  useEffect(() => {
+    const { data: authListener } = supabaseClient.auth.onAuthStateChange(
+      async (event, session) => {
+        setSession(session)
+        setIsLoading(false)
+      }
+    )
+
+    return () => {
+      authListener.subscription.unsubscribe()
+    }
+  }, [])
 
   const handleSubmit = async () => {
     setIsLoading(true)
 
     try {
-      const res = await auth.signInWithProvider({
+      const res = await supabaseClient.auth.signInWithOAuth({
         provider: 'discord',
         options: {
-          redirectTo: '/auth',
+          redirectTo: `${location.origin}/auth/callback`,
         },
       })
 
@@ -27,7 +41,7 @@ const AuthPanel = () => {
       }
     } catch (err) {
       setIsLoading(false)
-      alert('There was an error signing you up. Sorry!')
+      alert(`Sorry! We couldn't create an account for you.`)
       // console.error(err)
     }
   }
@@ -35,9 +49,9 @@ const AuthPanel = () => {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        {auth.session ? (
+        {hasSession ? (
           <button
-            onClick={async () => await auth.signOut()}
+            onClick={async () => await supabaseClient.auth.signOut()}
             className="flex m-auto justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             <div className={'flex  justify-between px-3 gap-x-4'}>
